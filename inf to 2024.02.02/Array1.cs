@@ -1,12 +1,13 @@
-﻿using System;
+﻿using inf_to_2024._02._02;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace дз_на_26._01._2024_финал
+namespace inf_to_2024._02._02
 {
-    class Array1
+    sealed class Array1: BaseArr
     {
         static private int _len;
         static private bool _avto_input = false;

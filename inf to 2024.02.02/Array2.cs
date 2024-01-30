@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace дз_на_26._01._2024_финал
+namespace inf_to_2024._02._02
 {
     class Array2
     {
