@@ -119,7 +119,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public void ArrayOutput()
+        public override void PrintArray()
         {
             for (int i = 0; i < arr.Length; i++)
             {

@@ -11,5 +11,6 @@ namespace inf_to_2024._02._02
     {
         public abstract void Average();
         public abstract void Create(bool avto_input = false);
+        public abstract void PrintArray();
     }
 }

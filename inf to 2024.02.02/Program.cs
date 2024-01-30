@@ -99,7 +99,7 @@ namespace inf_to_2024._02._02
                     }
                     else if (com == "Output")
                     {
-                        arr.ArrayOutput();
+                        arr.PrintArray();
                         arr.ChangedArrayOutput();
                     }
                     else if (com == "Stop")
@@ -137,7 +137,7 @@ namespace inf_to_2024._02._02
                     }
                     else if (com == "Show")
                     {
-                        arr.ArrayOutput();
+                        arr.PrintArray();
                     }
                     else if (com == "Average")
                     {

@@ -53,7 +53,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public void PrintArray()
+        public override void PrintArray()
         {
             foreach (int el in Array)
             {
