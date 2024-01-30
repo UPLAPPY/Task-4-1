@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    class Array2
+    sealed class Array2: BaseArr
     {
         static int stroki, stolbiki;
         static int[,] arr;
-        static bool _AvtoInput = false;
 
         static Random rnd = new Random();
 
-        public Array2(int Str, int Stl, bool AvtoInput)
+        public Array2(bool AvtoInput)
         {
-            stroki = Str;
-            stolbiki = Stl;
+            Create(AvtoInput);
+        }
+
+        public override void Create(bool AvtoInput)
+        {
+            Console.WriteLine("Введите количество строк и столбцов массива, \n" +
+                    "Каждое значение с новой строки:");
+            stroki = Convert.ToInt32(Console.ReadLine());
+            stolbiki = Convert.ToInt32(Console.ReadLine());
             arr = new int[stroki, stolbiki];
-            _AvtoInput = AvtoInput;
-            if (_AvtoInput)
+            if (AvtoInput)
             {
                 Avto_Input();
             }
@@ -43,7 +48,7 @@ namespace inf_to_2024._02._02
 
         public static void ArrayInput()
         {
-            Console.WriteLine("Введите матрицу");
+            Console.WriteLine("Введите элементы, каждый с новой строки");
             for (int i = 0; i < stroki; i++)
             {
                 for (int j = 0; j < stolbiki; j++)
@@ -81,7 +86,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public void Average()
+        public override void Average()
         {
             int sum = 0;
             for (int i = 0; i < stroki; i++)

@@ -72,16 +72,12 @@ namespace inf_to_2024._02._02
             }
             else if (choice == 2)
             {
-                Console.WriteLine("Введите количество строк и столбцов массива, \n" +
-                    "Каждое значение с новой строки:");
-                int stroki, stolbiki;
-                stroki = Convert.ToInt32(Console.ReadLine());
-                stolbiki = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
                 Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
                 input_ch = Convert.ToBoolean(Console.ReadLine());
-                Array2 arr = new Array2(stroki, stolbiki, input_ch);
+                Array2 arr = new Array2(input_ch);
                 Console.WriteLine("Список команд: \n" +
+                    "Create - перезаписать массив \n" +
                     "Average - найти и вывести среднее значение массива \n" +
                     "Output - вывести существующую матрицу, \n " +
                     "       а затем её же, печатая элементы четных строк в обратном порядке \n" +
@@ -89,7 +85,14 @@ namespace inf_to_2024._02._02
                 com = Console.ReadLine();
                 while (com != "Stop")
                 {
-                    if (com == "Average")
+                    if (com == "Create")
+                    {
+                        Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
+                        Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
+                        input_ch = Convert.ToBoolean(Console.ReadLine());
+                        arr.Create(input_ch);
+                    }
+                    else if (com == "Average")
                     {
                         arr.Average();
                     }
