@@ -10,6 +10,7 @@ namespace inf_to_2024._02._02
 {
     internal class Program
     {
+        public int choice;
         public static void Main()
         {
             Console.WriteLine("1 - одномерные массивы");
@@ -115,31 +116,32 @@ namespace inf_to_2024._02._02
             }
             else
             {
-                Console.WriteLine("Введите количество подмассивов массива:");
-                int stroki = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
                 Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
                 input_ch = Convert.ToBoolean(Console.ReadLine());
-                Array3 arr = new Array3(stroki, input_ch);
+                Array3 arr = new Array3(input_ch);
                 Console.WriteLine("Список команд: \n" +
+                    "Create - перезаписать массив \n" +
                     "Show - вывести исходный массив \n" +
-                    "Average - найти среднее значение во всем массиве \n" +
-                    "Average_Each - найти средние значения во всех вложенных массивах \n" +
+                    "Average - найти среднее значение во всем массиве, затем - во всех вложенных массивах \n" +
                     "ChangedArray - заменить все четные по значению элементы массива на произведения их индексов");
                 com = Console.ReadLine();
                 while (com != "Stop")
                 {
-                    if (com == "Show")
+                    if (com == "Create")
+                    {
+                        Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
+                        Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
+                        input_ch = Convert.ToBoolean(Console.ReadLine());
+                        arr.Create(input_ch);
+                    }
+                    else if (com == "Show")
                     {
                         arr.ArrayOutput();
                     }
-                    if (com == "Average")
+                    else if (com == "Average")
                     {
-                        arr.BigAverage();
-                    }
-                    else if (com == "Average_Each")
-                    {
-                        arr.SmallAverage();
+                        arr.Average();
                     }
                     else if (com == "ChangedArray")
                     {
