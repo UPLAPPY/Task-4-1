@@ -22,12 +22,10 @@ namespace inf_to_2024._02._02
             bool input_ch;
             if (choice == 1)
             {
-                Console.WriteLine("Введите количество элементов в массиве:");
-                int len = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
                 Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
                 input_ch = Convert.ToBoolean(Console.ReadLine());
-                Array1 arr = new Array1(len, input_ch);
+                Array1 arr = new Array1(input_ch);
                 Console.WriteLine("Список команд: Show - вывести исходный массив");
                 Console.WriteLine("Average - найти и вывести среднее значение в массиве");
                 Console.WriteLine("Delete - удалить все элементы, бльшие 100 по модулю");
@@ -90,7 +88,7 @@ namespace inf_to_2024._02._02
                     else if (com == "Output")
                     {
                         arr.ArrayOutput();
-                        arr.Changed_ArrayOutput();
+                        arr.ChangedArrayOutput();
                     }
                     else if (com == "Stop")
                     {
@@ -126,11 +124,11 @@ namespace inf_to_2024._02._02
                     }
                     if (com == "Average")
                     {
-                        arr.Big_Average();
+                        arr.BigAverage();
                     }
                     else if (com == "Average_Each")
                     {
-                        arr.Small_Average();
+                        arr.SmallAverage();
                     }
                     else if (com == "ChangedArray")
                     {

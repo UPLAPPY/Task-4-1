@@ -66,7 +66,7 @@ namespace inf_to_2024._02._02
             Console.WriteLine();
         }
 
-        public void Changed_ArrayOutput()
+        public void ChangedArrayOutput()
         {
             for (int i = 0; i < stroki; i++)
             {

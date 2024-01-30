@@ -10,32 +10,44 @@ namespace inf_to_2024._02._02
     sealed class Array1: BaseArr
     {
         static private int _len;
-        static private bool _avto_input = false;
+        static private bool _avto_input;
         static public int[] Array;
 
         static Random rnd = new Random();
 
-        public Array1(int len, bool avto_input)
+        public Array1(bool avto_input)
         {
-            _len = len;
+            Create(avto_input);
+        }
+
+        public override void Create(bool avto_input)
+        {
             _avto_input = avto_input;
-            Array = new int[_len];
             if (_avto_input)
             {
                 AvtoInput();
             }
             else
             {
-                Console.WriteLine("Введите элементы, каждый с новой строки");
-                for (int i = 0; i < _len; i++)
-                {
-                    Array[i] = Convert.ToInt32(Console.ReadLine());
-                }
+                ArrayInput();
             }
         }
 
-        static void AvtoInput()
+        static void ArrayInput()
         {
+            Console.WriteLine("Введите количество элементов в массиве:");
+            _len = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите элементы, каждый с новой строки");
+            for (int i = 0; i < _len; i++)
+            {
+                Array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+
+        private static void AvtoInput()
+        {
+            Console.WriteLine("Введите количество элементов в массиве:");
+            _len = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < _len; i++)
             {
                 Array[i] = rnd.Next(1, 33);
@@ -51,7 +63,7 @@ namespace inf_to_2024._02._02
             Console.WriteLine();
         }
 
-        public void Average()
+        public override void Average()
         {
             int sum = 0;
             foreach (int num in Array)

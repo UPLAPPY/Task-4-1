@@ -59,7 +59,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public void Big_Average()
+        public void BigAverage()
         {
             int sum = 0, counter = 0;
             for (int i = 0; i < stroki; i++)
@@ -73,7 +73,7 @@ namespace inf_to_2024._02._02
             Console.WriteLine(sum / counter);
         }
 
-        public void Small_Average()
+        public void SmallAverage()
         {
             int sum = 0, counter = 0;
             for (int i = 0; i < stroki; i++)
