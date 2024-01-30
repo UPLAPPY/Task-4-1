@@ -26,7 +26,8 @@ namespace inf_to_2024._02._02
                 Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
                 input_ch = Convert.ToBoolean(Console.ReadLine());
                 Array1 arr = new Array1(input_ch);
-                Console.WriteLine("Список команд: Show - вывести исходный массив");
+                Console.WriteLine("Список команд: Show - вывести исходный массив \n" +
+                    "Create - перезаписать массив");
                 Console.WriteLine("Average - найти и вывести среднее значение в массиве");
                 Console.WriteLine("Delete - удалить все элементы, бльшие 100 по модулю");
                 Console.WriteLine("DeleteRepeat - удалить все повторяющиеся элементы");
@@ -34,7 +35,14 @@ namespace inf_to_2024._02._02
                 com = Console.ReadLine();
                 while (com != "Stop")
                 {
-                    if (com == "Show")
+                    if (com == "Create")
+                    {
+                        Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
+                        Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
+                        input_ch = Convert.ToBoolean(Console.ReadLine());
+                        arr = new Array1(input_ch);
+                    }
+                    else if (com == "Show")
                     {
                         arr.PrintArray();
                     }

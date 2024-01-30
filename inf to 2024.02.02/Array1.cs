@@ -11,7 +11,7 @@ namespace inf_to_2024._02._02
     {
         static private int _len;
         static private bool _avto_input;
-        static public int[] Array;
+        public int[] Array;
 
         static Random rnd = new Random();
 
@@ -22,6 +22,9 @@ namespace inf_to_2024._02._02
 
         public override void Create(bool avto_input)
         {
+            Console.WriteLine("Введите количество элементов массива:");
+            _len = Convert.ToInt32(Console.ReadLine());
+            Array = new int[_len];
             _avto_input = avto_input;
             if (_avto_input)
             {
@@ -33,10 +36,8 @@ namespace inf_to_2024._02._02
             }
         }
 
-        static void ArrayInput()
+        private void ArrayInput()
         {
-            Console.WriteLine("Введите количество элементов в массиве:");
-            _len = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите элементы, каждый с новой строки");
             for (int i = 0; i < _len; i++)
             {
@@ -44,10 +45,8 @@ namespace inf_to_2024._02._02
             }
         }
 
-        private static void AvtoInput()
+        private void AvtoInput()
         {
-            Console.WriteLine("Введите количество элементов в массиве:");
-            _len = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < _len; i++)
             {
                 Array[i] = rnd.Next(1, 33);
