@@ -9,7 +9,7 @@ namespace inf_to_2024._02._02
     sealed class Array2: BaseArr
     {
         static int stroki, stolbiki;
-        static int[,] arr;
+        private static int[,] arr;
 
         public Array2(bool AvtoInput)
         {

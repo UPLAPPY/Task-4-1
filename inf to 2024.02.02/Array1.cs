@@ -11,7 +11,7 @@ namespace inf_to_2024._02._02
     {
         static private int _len;
         static private bool _avto_input;
-        public int[] Array;
+        private int[] Array;
 
         public Array1(bool avto_input)
         {
