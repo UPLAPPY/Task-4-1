@@ -13,151 +13,23 @@ namespace inf_to_2024._02._02
         public int choice;
         public static void Main()
         {
-            Console.WriteLine("1 - одномерные массивы");
-            Console.WriteLine("2 - Двумерные массивы");
-            Console.WriteLine("3 - Ступенчатые массивы");
-            Console.WriteLine("Выберите с какими массивами вы хотите работать:");
-            int choice;
-            string com;
-            choice = Convert.ToInt32(Console.ReadLine());
-            bool input_ch;
-            if (choice == 1)
+            BaseArr[] testArrays = new BaseArr[3];
+
+            testArrays[0] = new Array1(false);
+            Console.WriteLine();
+            testArrays[1] = new Array2(false);
+            Console.WriteLine();
+            testArrays[2] = new Array3(false);
+            Console.WriteLine();
+
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
-                Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
-                input_ch = Convert.ToBoolean(Console.ReadLine());
-                Array1 arr = new Array1(input_ch);
-                Console.WriteLine("Список команд: Show - вывести исходный массив \n" +
-                    "Create - перезаписать массив");
-                Console.WriteLine("Average - найти и вывести среднее значение в массиве");
-                Console.WriteLine("Delete - удалить все элементы, бльшие 100 по модулю");
-                Console.WriteLine("DeleteRepeat - удалить все повторяющиеся элементы");
-                Console.WriteLine("Stop - остановить выполнение программы");
-                com = Console.ReadLine();
-                while (com != "Stop")
-                {
-                    if (com == "Create")
-                    {
-                        Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
-                        Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
-                        input_ch = Convert.ToBoolean(Console.ReadLine());
-                        arr = new Array1(input_ch);
-                    }
-                    else if (com == "Show")
-                    {
-                        arr.PrintArray();
-                    }
-                    else if (com == "Average")
-                    {
-                        arr.Average();
-                    }
-                    else if (com == "Delete")
-                    {
-                        arr.DeleteMore100();
-                    }
-                    else if (com == "DeleteRepeat")
-                    {
-                        arr.DeletePovtor();
-                    }
-                    else if (com == "Stop")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Команда не распознана");
-                    }
-                    Console.WriteLine("Введите команду:");
-                    com = Console.ReadLine();
-                }
-            }
-            else if (choice == 2)
-            {
-                Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
-                Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
-                input_ch = Convert.ToBoolean(Console.ReadLine());
-                Array2 arr = new Array2(input_ch);
-                Console.WriteLine("Список команд: \n" +
-                    "Create - перезаписать массив \n" +
-                    "Average - найти и вывести среднее значение массива \n" +
-                    "Output - вывести существующую матрицу, \n " +
-                    "       а затем её же, печатая элементы четных строк в обратном порядке \n" +
-                    "Stop - остановить выполнение программы");
-                com = Console.ReadLine();
-                while (com != "Stop")
-                {
-                    if (com == "Create")
-                    {
-                        Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
-                        Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
-                        input_ch = Convert.ToBoolean(Console.ReadLine());
-                        arr.Create(input_ch);
-                    }
-                    else if (com == "Average")
-                    {
-                        arr.Average();
-                    }
-                    else if (com == "Output")
-                    {
-                        arr.PrintArray();
-                        arr.ChangedArrayOutput();
-                    }
-                    else if (com == "Stop")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Команда не распознана, попробуйте еще раз");
-                    }
-                    Console.WriteLine("Введите команду:");
-                    com = Console.ReadLine();
-                }
-            }
-            else
-            {
-                Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
-                Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
-                input_ch = Convert.ToBoolean(Console.ReadLine());
-                Array3 arr = new Array3(input_ch);
-                Console.WriteLine("Список команд: \n" +
-                    "Create - перезаписать массив \n" +
-                    "Show - вывести исходный массив \n" +
-                    "Average - найти среднее значение во всем массиве, затем - во всех вложенных массивах \n" +
-                    "ChangedArray - заменить все четные по значению элементы массива на произведения их индексов");
-                com = Console.ReadLine();
-                while (com != "Stop")
-                {
-                    if (com == "Create")
-                    {
-                        Console.WriteLine("Введите true, если хотите заполнить массив автоматически");
-                        Console.WriteLine("Введите false, если хотите заполнить массив самостоятельно");
-                        input_ch = Convert.ToBoolean(Console.ReadLine());
-                        arr.Create(input_ch);
-                    }
-                    else if (com == "Show")
-                    {
-                        arr.PrintArray();
-                    }
-                    else if (com == "Average")
-                    {
-                        arr.Average();
-                    }
-                    else if (com == "ChangedArray")
-                    {
-                        arr.ChangeChetToPr();
-                    }
-                    else if (com == "Stop")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Команда не распознана, попробуйте еще раз");
-                    }
-                    Console.WriteLine("Введите команду:");
-                    com = Console.ReadLine();
-                }
+                testArrays[i].PrintArray();
+                Console.WriteLine($"Average: ");
+                testArrays[i].Average();
+                testArrays[i].Create(true);
+                testArrays[i].PrintArray();
+                Console.WriteLine();
             }
         }
     }
