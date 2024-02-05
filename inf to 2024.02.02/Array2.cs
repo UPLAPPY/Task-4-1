@@ -11,8 +11,6 @@ namespace inf_to_2024._02._02
         static int stroki, stolbiki;
         static int[,] arr;
 
-        static Random rnd = new Random();
-
         public Array2(bool AvtoInput)
         {
             Create(AvtoInput);
@@ -37,6 +35,8 @@ namespace inf_to_2024._02._02
 
         private static void Avto_Input()
         {
+            Random rnd = new Random();
+
             for (int i = 0; i < stroki; i++)
             {
                 for (int j = 0; j < stolbiki; j++)

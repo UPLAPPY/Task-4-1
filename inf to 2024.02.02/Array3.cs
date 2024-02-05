@@ -12,8 +12,6 @@ namespace inf_to_2024._02._02
         static int stroki, stolbiki;
         static int[][] arr;
 
-        static Random rnd = new Random();
-
         public Array3(bool avto_input)
         {
             Create(avto_input);
@@ -36,6 +34,8 @@ namespace inf_to_2024._02._02
 
         public static void AvtoInput()
         {
+            Random rnd = new Random();
+
             for (int i = 0; i < stroki; i++)
             {
                 Console.WriteLine("Введите количество элементов данного подмассива:");

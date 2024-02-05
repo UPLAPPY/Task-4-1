@@ -13,8 +13,6 @@ namespace inf_to_2024._02._02
         static private bool _avto_input;
         public int[] Array;
 
-        static Random rnd = new Random();
-
         public Array1(bool avto_input)
         {
             Create(avto_input);
@@ -47,6 +45,8 @@ namespace inf_to_2024._02._02
 
         private void AvtoInput()
         {
+            Random rnd = new Random();
+
             for (int i = 0; i < _len; i++)
             {
                 Array[i] = rnd.Next(1, 33);
