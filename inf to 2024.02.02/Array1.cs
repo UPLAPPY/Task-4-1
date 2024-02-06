@@ -10,7 +10,6 @@ namespace inf_to_2024._02._02
     sealed class Array1: BaseArr
     {
         private int _len;
-        private bool _avto_input;
         private int[] Array;
 
         public Array1(bool avto_input)
@@ -23,8 +22,7 @@ namespace inf_to_2024._02._02
             Console.WriteLine("Введите количество элементов массива:");
             _len = Convert.ToInt32(Console.ReadLine());
             Array = new int[_len];
-            _avto_input = avto_input;
-            if (_avto_input)
+            if (avto_input)
             {
                 AvtoInput();
             }

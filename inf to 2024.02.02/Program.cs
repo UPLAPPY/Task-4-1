@@ -10,7 +10,6 @@ namespace inf_to_2024._02._02
 {
     internal class Program
     {
-        public int choice;
         public static void Main()
         {
             BaseArr[] testArrays = new BaseArr[3];
