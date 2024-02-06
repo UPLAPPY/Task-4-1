@@ -9,7 +9,7 @@ namespace inf_to_2024._02._02
 {
     sealed class Array3: BaseArr
     {
-        static int stroki, stolbiki;
+        int stroki, stolbiki;
         private static int[][] arr;
 
         public Array3(bool avto_input)
@@ -32,7 +32,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public static void AvtoInput()
+        public void AvtoInput()
         {
             Random rnd = new Random();
 
@@ -48,7 +48,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public static void InputArray()
+        public void InputArray()
         {
             for (int i = 0; i < stroki; i++)
             {
@@ -102,23 +102,6 @@ namespace inf_to_2024._02._02
                 counter = 0;
             }
         }
-
-        public void ChangeChetToPr()
-        {
-            for (int i = 0; i < arr.Length; i++)
-            {
-                for (int j = 0; j < arr[i].Length; j++)
-                {
-                    if (arr[i][j] % 2 == 0)
-                    {
-                        arr[i][j] = i * j;
-                    }
-                    Console.Write(arr[i][j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
-
         public override void PrintArray()
         {
             for (int i = 0; i < arr.Length; i++)

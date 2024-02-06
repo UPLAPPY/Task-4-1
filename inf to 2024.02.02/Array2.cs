@@ -8,7 +8,7 @@ namespace inf_to_2024._02._02
 {
     sealed class Array2: BaseArr
     {
-        static int stroki, stolbiki;
+        int stroki, stolbiki;
         private static int[,] arr;
 
         public Array2(bool AvtoInput)
@@ -33,7 +33,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        private static void Avto_Input()
+        private void Avto_Input()
         {
             Random rnd = new Random();
 
@@ -46,7 +46,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public static void ArrayInput()
+        public void ArrayInput()
         {
             Console.WriteLine("Введите элементы, каждый с новой строки");
             for (int i = 0; i < stroki; i++)
@@ -69,21 +69,6 @@ namespace inf_to_2024._02._02
                 Console.WriteLine();
             }
             Console.WriteLine();
-        }
-
-        public void ChangedArrayOutput()
-        {
-            for (int i = 0; i < stroki; i++)
-            {
-                for (int j = 0; j < stolbiki; j++)
-                {
-                    int index = (i % 2 != 0)
-                        ? arr[i, stolbiki - j - 1]
-                        : arr[i, j];
-                    Console.Write(index + " ");
-                }
-                Console.WriteLine();
-            }
         }
 
         public override void Average()
