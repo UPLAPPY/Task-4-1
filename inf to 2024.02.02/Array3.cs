@@ -9,8 +9,10 @@ namespace inf_to_2024._02._02
 {
     sealed class Array3: BaseArr
     {
-        int stroki, stolbiki;
+        private int stroki, stolbiki;
         private int[][] arr;
+
+        private static Random rnd = new Random();
 
         public Array3(bool avto_input)
         {
@@ -34,8 +36,6 @@ namespace inf_to_2024._02._02
 
         public void AvtoInput()
         {
-            Random rnd = new Random();
-
             for (int i = 0; i < stroki; i++)
             {
                 Console.WriteLine("Введите количество элементов данного подмассива:");

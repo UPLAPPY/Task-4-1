@@ -8,8 +8,10 @@ namespace inf_to_2024._02._02
 {
     sealed class Array2: BaseArr
     {
-        int stroki, stolbiki;
+        private int stroki, stolbiki;
         private int[,] arr;
+
+        private static Random rnd = new Random();
 
         public Array2(bool AvtoInput)
         {
@@ -35,8 +37,6 @@ namespace inf_to_2024._02._02
 
         private void Avto_Input()
         {
-            Random rnd = new Random();
-
             for (int i = 0; i < stroki; i++)
             {
                 for (int j = 0; j < stolbiki; j++)
