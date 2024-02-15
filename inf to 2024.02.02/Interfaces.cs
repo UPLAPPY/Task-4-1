@@ -16,8 +16,13 @@ namespace inf_to_2024._02._02
         public void Average();
         public void Create(bool avto_input = false);
 
-        public void DeleteRepeat();
-        public void 
+        public void DeleteRep();
     }
+
+    interface IWeek: IPrinter
+    {
+
+    }
+
 }
 

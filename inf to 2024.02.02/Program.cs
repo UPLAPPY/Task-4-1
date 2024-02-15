@@ -21,15 +21,27 @@ namespace inf_to_2024._02._02
             testArrays[2] = new Array3(false);
             Console.WriteLine();
 
-            for (int i = 0; i < 3; i++)
-            {
-                testArrays[i].PrintArray();
-                Console.WriteLine($"Average: ");
-                testArrays[i].Average();
-                testArrays[i].Create(true);
-                testArrays[i].PrintArray();
-                Console.WriteLine();
-            }
+            testArrays[0].PrintArray();
+            Console.WriteLine($"Average: ");
+            testArrays[0].Average();
+            testArrays[0].Create(true);
+            testArrays[0].PrintArray();
+            testArrays[0].DeleteRep();
+
+            testArrays[1].PrintArray();
+            Console.WriteLine($"Average: ");
+            testArrays[1].Average();
+            testArrays[1].Create(true);
+            testArrays[1].PrintArray();
+            
+            testArrays[2].PrintArray();
+            Console.WriteLine($"Average: ");
+            testArrays[2].Average();
+            testArrays[2].Create(true);
+            testArrays[2].PrintArray();
+
+            Week day = new Week();
+            day.PrintArray();
         }
     }
 }

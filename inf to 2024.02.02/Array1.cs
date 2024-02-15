@@ -60,7 +60,7 @@ namespace inf_to_2024._02._02
             Console.WriteLine();
         }
 
-        public void DeleteRep()
+        public override void DeleteRep()
         {
             DeletePovt.GetArrayWithoutDuplicates(Array);
         }
