@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace inf_to_2024._02._02
 {
-    sealed class Array3: BaseArr
+    class Array3: IBaseArr, IPrinter
     {
         private int stroki, stolbiki;
         private int[][] arr;

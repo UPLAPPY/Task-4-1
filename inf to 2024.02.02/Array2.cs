@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    sealed class Array2: BaseArr
+    class Array2: IBaseArr, IPrinter
     {
         private int stroki, stolbiki;
         private int[,] arr;
@@ -60,6 +60,12 @@ namespace inf_to_2024._02._02
 
         public override void PrintArray()
         {
+            ArrayOutput();
+            ChArrayOutput();
+        }
+
+        private void ArrayOutput()
+        {
             for (int i = 0; i < stroki; i++)
             {
                 for (int j = 0; j < stolbiki; j++)
@@ -69,6 +75,20 @@ namespace inf_to_2024._02._02
                 Console.WriteLine();
             }
             Console.WriteLine();
+        }
+        private void ChArrayOutput()
+        {
+            for (int i = 0; i < stroki; i++)
+            {
+                for (int j = 0; j < stolbiki; j++)
+                {
+                    int index = (i % 2 != 0)
+                        ? arr[i, stolbiki - j - 1]
+                        : arr[i, j];
+                    Console.Write(index + " ");
+                }
+                Console.WriteLine();
+            }
         }
 
         public override void Average()

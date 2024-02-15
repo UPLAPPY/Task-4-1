@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    sealed class Array1: BaseArr
+    class Array1: IPrinter, IBaseArr
     {
         private int _len;
         private int[] Array;
@@ -60,6 +60,11 @@ namespace inf_to_2024._02._02
             Console.WriteLine();
         }
 
+        public void DeleteRep()
+        {
+            DeletePovt.GetArrayWithoutDuplicates(Array);
+        }
+
         public override void Average()
         {
             int sum = 0;
@@ -68,6 +73,59 @@ namespace inf_to_2024._02._02
                 sum += num;
             }
             Console.WriteLine(sum / _len);
+        }
+    }
+
+    class DeletePovt
+    {
+        public static void GetArrayWithoutDuplicates(int[] array)
+        {
+            int newArrayLength = array.Length;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = i; j < array.Length; j++)
+                {
+                    if (array[i] == array[j] && i != j)
+                    {
+                        newArrayLength--;
+                        break;
+                    }
+                }
+            }
+
+            int[] newArray = new int[newArrayLength];
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                newArray[i] = int.MinValue;
+            }
+            int counter = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (!Exists(array[i], newArray))
+                {
+                    newArray[counter] = array[i];
+                    counter++;
+                }
+            }
+
+            foreach (var item in newArray)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+        }
+
+        private static bool Exists(int value, int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == value)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

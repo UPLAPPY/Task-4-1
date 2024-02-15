@@ -12,7 +12,7 @@ namespace inf_to_2024._02._02
     {
         public static void Main()
         {
-            BaseArr[] testArrays = new BaseArr[3];
+            IBaseArr[] testArrays = new IBaseArr[3];
 
             testArrays[0] = new Array1(false);
             Console.WriteLine();
