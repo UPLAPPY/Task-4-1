@@ -63,6 +63,8 @@ namespace inf_to_2024._02._02
                 Console.Write(el + " ");
             }
             Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         public void DeleteRep()

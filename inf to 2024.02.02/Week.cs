@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    internal class Week: IPrinter
+    interface IWeek : IPrinter
+    {
+        void PrintArray();
+    }
+    sealed class Week: IWeek
     {
         DateTime dateTime;
         public Week() 
@@ -14,7 +18,7 @@ namespace inf_to_2024._02._02
             dateTime = DateTime.Now;
         }
 
-        public override void PrintArray()
+        public void PrintArray()
         {
             Console.WriteLine("Day of week: ");
             Console.WriteLine(dateTime.DayOfWeek);
