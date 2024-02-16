@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    class Array1: IPrinter, IBaseArr
+    interface IArray1: IBaseArr
+    {
+        void DeleteRep();
+    }
+
+    sealed class Array1 : IArray1
     {
         private int _len;
         private int[] Array;
@@ -19,7 +24,7 @@ namespace inf_to_2024._02._02
             Create(avto_input);
         }
 
-        public override void Create(bool avto_input)
+        public void Create(bool avto_input)
         {
             Console.WriteLine("Введите количество элементов массива:");
             _len = Convert.ToInt32(Console.ReadLine());
@@ -51,7 +56,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public override void PrintArray()
+        public void PrintArray()
         {
             foreach (int el in Array)
             {
@@ -60,32 +65,14 @@ namespace inf_to_2024._02._02
             Console.WriteLine();
         }
 
-        public override void DeleteRep()
+        public void DeleteRep()
         {
-            DeletePovt.GetArrayWithoutDuplicates(Array);
-        }
-
-        public override void Average()
-        {
-            int sum = 0;
-            foreach (int num in Array)
+            int newArrayLength = Array.Length;
+            for (int i = 0; i < Array.Length; i++)
             {
-                sum += num;
-            }
-            Console.WriteLine(sum / _len);
-        }
-    }
-
-    class DeletePovt
-    {
-        public static void GetArrayWithoutDuplicates(int[] array)
-        {
-            int newArrayLength = array.Length;
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = i; j < array.Length; j++)
+                for (int j = i; j < Array.Length; j++)
                 {
-                    if (array[i] == array[j] && i != j)
+                    if (Array[i] == Array[j] && i != j)
                     {
                         newArrayLength--;
                         break;
@@ -100,11 +87,11 @@ namespace inf_to_2024._02._02
             }
             int counter = 0;
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < Array.Length; i++)
             {
-                if (!Exists(array[i], newArray))
+                if (!Exists(Array[i], newArray))
                 {
-                    newArray[counter] = array[i];
+                    newArray[counter] = Array[i];
                     counter++;
                 }
             }
@@ -116,6 +103,8 @@ namespace inf_to_2024._02._02
             Console.WriteLine();
         }
 
+
+
         private static bool Exists(int value, int[] array)
         {
             for (int i = 0; i < array.Length; i++)
@@ -126,6 +115,15 @@ namespace inf_to_2024._02._02
                 }
             }
             return false;
+        }
+        public void Average()
+        {
+            int sum = 0;
+            foreach (int num in Array)
+            {
+                sum += num;
+            }
+            Console.WriteLine(sum / _len);
         }
     }
 }

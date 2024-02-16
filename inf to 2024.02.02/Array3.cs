@@ -19,7 +19,7 @@ namespace inf_to_2024._02._02
             Create(avto_input);
         }
 
-        public override void Create(bool avto_input)
+        public void Create(bool avto_input)
         {
             Console.WriteLine("Введите количество подмассивов массива:");
             stroki = Convert.ToInt32(Console.ReadLine());
@@ -64,7 +64,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public override void Average()
+        public void Average()
         {
             BigAverage();
             SmallAverage();
@@ -102,7 +102,7 @@ namespace inf_to_2024._02._02
                 counter = 0;
             }
         }
-        public override void PrintArray()
+        public void PrintArray()
         {
             for (int i = 0; i < arr.Length; i++)
             {

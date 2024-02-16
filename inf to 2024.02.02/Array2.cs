@@ -18,7 +18,7 @@ namespace inf_to_2024._02._02
             Create(AvtoInput);
         }
 
-        public override void Create(bool AvtoInput)
+        public void Create(bool AvtoInput)
         {
             Console.WriteLine("Введите количество строк и столбцов массива, \n" +
                     "Каждое значение с новой строки:");
@@ -58,7 +58,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public override void PrintArray()
+        public void PrintArray()
         {
             ArrayOutput();
             ChArrayOutput();
@@ -91,7 +91,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public override void Average()
+        public void Average()
         {
             int sum = 0;
             for (int i = 0; i < stroki; i++)

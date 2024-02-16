@@ -6,23 +6,15 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 { 
-    interface IPrinter
+    public interface IPrinter
     {
-        public void PrintArray();
+        void PrintArray();
     }
 
-    interface IBaseArr: IPrinter
+    public interface IBaseArr: IPrinter
     {
-        public void Average();
-        public void Create(bool avto_input = false);
-
-        public void DeleteRep();
+        void Average();
+        void Create(bool avto_input = false);
     }
-
-    interface IWeek: IPrinter
-    {
-
-    }
-
 }
 
