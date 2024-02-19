@@ -13,35 +13,31 @@ namespace inf_to_2024._02._02
         public static void Main()
         {
             IBaseArr[] testArrays = new IBaseArr[3];
+            testArrays[0] = new Array1(false);
+            testArrays[1] = new Array2(false);
+            testArrays[2] = new Array3(false);
 
-            testArrays[0] = new Array1(true);
-            Console.WriteLine();
-            testArrays[1] = new Array2(true);
-            Console.WriteLine();
-            testArrays[2] = new Array3(true);
-            Console.WriteLine();
+            for (int i = 0; i< 3; i++)
+            {
+                testArrays[i].PrintArray();
+                testArrays[i].Average();
+                testArrays[i].Create(true);
+                if (i == 0)
+                {
+                    ((IArray1)testArrays[0]).DeleteRep();
+                }
+            }
 
-            testArrays[0].PrintArray();
-            Console.WriteLine($"Average: ");
-            testArrays[0].Average();
-            testArrays[0].Create(false);
-            testArrays[0].PrintArray();
-            //testArrays[0].DeleteRep();
+            IPrinter[] printerArrays = new IPrinter[4];
+            printerArrays[0] = testArrays[0];
+            printerArrays[1] = testArrays[1];
+            printerArrays[2] = testArrays[2];
+            printerArrays[3] = new Week();
 
-            testArrays[1].PrintArray();
-            Console.WriteLine($"Average: ");
-            testArrays[1].Average();
-            testArrays[1].Create(false);
-            testArrays[1].PrintArray();
-            
-            testArrays[2].PrintArray();
-            Console.WriteLine($"Average: ");
-            testArrays[2].Average();
-            testArrays[2].Create(false);
-            testArrays[2].PrintArray();
-
-            Week day = new Week();
-            day.PrintArray();
+            for (int i = 0; i < 4; i++)
+            {
+                printerArrays[i].PrintArray();
+            }
         }
     }
 }
