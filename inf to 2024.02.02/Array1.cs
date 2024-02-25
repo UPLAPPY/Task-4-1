@@ -14,7 +14,6 @@ namespace inf_to_2024._02._02
 
     sealed class Array1 : BaseArr, IArray1
     {
-        private int _len;
         private int[] Array;
 
         private static Random rnd = new Random();
@@ -27,7 +26,7 @@ namespace inf_to_2024._02._02
         public override void Create(bool avto_input)
         {
             Console.WriteLine("Введите количество элементов массива:");
-            _len = Convert.ToInt32(Console.ReadLine());
+            int _len = Convert.ToInt32(Console.ReadLine());
             Array = new int[_len];
             base.Create(avto_input);
         }
@@ -35,7 +34,7 @@ namespace inf_to_2024._02._02
         public override void ArrayInput()
         {
             Console.WriteLine("Введите элементы, каждый с новой строки");
-            for (int i = 0; i < _len; i++)
+            for (int i = 0; i < Array.Length; i++)
             {
                 Array[i] = Convert.ToInt32(Console.ReadLine());
             }
@@ -43,20 +42,18 @@ namespace inf_to_2024._02._02
 
         public override void AvtoInput()
         {
-            for (int i = 0; i < _len; i++)
+            for (int i = 0; i < Array.Length; i++)
             {
                 Array[i] = rnd.Next(1, 33);
             }
         }
 
-        public void PrintArray()
+        public override void PrintArray()
         {
             foreach (int el in Array)
             {
                 Console.Write(el + " ");
             }
-            Console.WriteLine();
-            Console.WriteLine();
             Console.WriteLine();
         }
 
@@ -111,14 +108,14 @@ namespace inf_to_2024._02._02
             }
             return false;
         }
-        public void Average()
+        public override void Average()
         {
             int sum = 0;
             foreach (int num in Array)
             {
                 sum += num;
             }
-            Console.WriteLine(sum / _len);
+            Console.WriteLine(sum / Array.Length);
         }
     }
 }

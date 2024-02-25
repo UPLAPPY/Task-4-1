@@ -7,9 +7,8 @@ using System.Xml.Serialization;
 
 namespace inf_to_2024._02._02
 {
-    class Array3: IBaseArr, IPrinter
+    sealed class Array3: BaseArr, IBaseArr, IPrinter
     {
-        private int stroki, stolbiki;
         private int[][] arr;
 
         private static Random rnd = new Random();
@@ -19,10 +18,10 @@ namespace inf_to_2024._02._02
             Create(avto_input);
         }
 
-        public void Create(bool avto_input)
+        public override void Create(bool avto_input)
         {
             Console.WriteLine("Введите количество подмассивов массива:");
-            stroki = Convert.ToInt32(Console.ReadLine());
+            int stroki = Convert.ToInt32(Console.ReadLine());
             arr = new int[stroki][];
             if (avto_input)
             {
@@ -30,16 +29,16 @@ namespace inf_to_2024._02._02
             }
             else
             {
-                InputArray();
+                ArrayInput();
             }
         }
 
-        public void AvtoInput()
+        public override void AvtoInput()
         {
-            for (int i = 0; i < stroki; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine("Введите количество элементов данного подмассива:");
-                stolbiki = Convert.ToInt32(Console.ReadLine());
+                int stolbiki = Convert.ToInt32(Console.ReadLine());
                 arr[i] = new int[stolbiki];
                 for (int j = 0; j < stolbiki; j++)
                 {
@@ -48,12 +47,12 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public void InputArray()
+        public override void ArrayInput()
         {
-            for (int i = 0; i < stroki; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine("Введите количество элементов данного подмассива");
-                stolbiki = Convert.ToInt32(Console.ReadLine());
+                int stolbiki = Convert.ToInt32(Console.ReadLine());
                 arr[i] = new int[stolbiki];
                 Console.WriteLine($"Введите {stolbiki} элементов \n" +
                     "Каждый с новой строки:");
@@ -64,17 +63,16 @@ namespace inf_to_2024._02._02
             }
         }
 
-        public void Average()
+        public override void Average()
         {
             BigAverage();
             SmallAverage();
-
         }
 
         public void BigAverage()
         {
             int sum = 0, counter = 0;
-            for (int i = 0; i < stroki; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 for (int j = 0; j < arr[i].Length; j++)
                 {
@@ -90,7 +88,7 @@ namespace inf_to_2024._02._02
         {
             Console.WriteLine("Средние значения каждого подмассива:");
             int sum = 0, counter = 0;
-            for (int i = 0; i < stroki; i++)
+            for (int i = 0; i < arr[i].Length; i++)
             {
                 for (int j = 0; j < arr[i].Length; j++)
                 {
@@ -102,7 +100,7 @@ namespace inf_to_2024._02._02
                 counter = 0;
             }
         }
-        public void PrintArray()
+        public override void PrintArray()
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -112,6 +110,7 @@ namespace inf_to_2024._02._02
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
     }
 }
