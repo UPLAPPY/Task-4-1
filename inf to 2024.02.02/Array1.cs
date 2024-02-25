@@ -12,7 +12,7 @@ namespace inf_to_2024._02._02
         void DeleteRep();
     }
 
-    sealed class Array1 : IArray1
+    sealed class Array1 : BaseArr, IArray1
     {
         private int _len;
         private int[] Array;
@@ -24,22 +24,15 @@ namespace inf_to_2024._02._02
             Create(avto_input);
         }
 
-        public void Create(bool avto_input)
+        public override void Create(bool avto_input)
         {
             Console.WriteLine("Введите количество элементов массива:");
             _len = Convert.ToInt32(Console.ReadLine());
             Array = new int[_len];
-            if (avto_input)
-            {
-                AvtoInput();
-            }
-            else
-            {
-                ArrayInput();
-            }
+            base.Create(avto_input);
         }
 
-        private void ArrayInput()
+        public override void ArrayInput()
         {
             Console.WriteLine("Введите элементы, каждый с новой строки");
             for (int i = 0; i < _len; i++)
@@ -48,7 +41,7 @@ namespace inf_to_2024._02._02
             }
         }
 
-        private void AvtoInput()
+        public override void AvtoInput()
         {
             for (int i = 0; i < _len; i++)
             {
