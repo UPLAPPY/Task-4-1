@@ -7,11 +7,6 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    interface IArray1: IBaseArr
-    {
-        void DeleteRep();
-    }
-
     sealed class Array1 : BaseArr, IArray1
     {
         private int[] Array;

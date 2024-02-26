@@ -8,10 +8,7 @@ namespace inf_to_2024._02._02
 {
     abstract class BaseArr: IBaseArr
     {
-        public virtual void Average()
-        {
-
-        }
+        public abstract void Average();
 
         public virtual void Create(bool avto_input = false)
         {
@@ -29,9 +26,6 @@ namespace inf_to_2024._02._02
 
         public abstract void ArrayInput();
 
-        public virtual void PrintArray()
-        {
-
-        }
+        public abstract void PrintArray();
     }
 }
