@@ -17,21 +17,14 @@ namespace inf_to_2024._02._02
             Create(AvtoInput);
         }
 
-        public override void Create(bool avtoInput)
+        public override void Create(bool avto_input)
         {
             Console.WriteLine("Введите количество строк и столбцов массива, \n" +
                     "Каждое значение с новой строки:");
             int stroki = Convert.ToInt32(Console.ReadLine());
             int stolbiki = Convert.ToInt32(Console.ReadLine());
             arr = new int[stroki, stolbiki];
-            if (avtoInput)
-            {
-                AvtoInput();
-            }
-            else
-            {
-                ArrayInput();
-            }
+            base.Create(avto_input);
         }
 
         public override void AvtoInput()

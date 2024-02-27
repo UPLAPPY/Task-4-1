@@ -23,14 +23,7 @@ namespace inf_to_2024._02._02
             Console.WriteLine("Введите количество подмассивов массива:");
             int stroki = Convert.ToInt32(Console.ReadLine());
             arr = new int[stroki][];
-            if (avto_input)
-            {
-                AvtoInput();
-            }
-            else
-            {
-                ArrayInput();
-            }
+            base.Create(avto_input);
         }
 
         public override void AvtoInput()
@@ -88,7 +81,7 @@ namespace inf_to_2024._02._02
         {
             Console.WriteLine("Средние значения каждого подмассива:");
             int sum = 0, counter = 0;
-            for (int i = 0; i < arr[i].Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 for (int j = 0; j < arr[i].Length; j++)
                 {
