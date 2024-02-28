@@ -52,57 +52,6 @@ namespace inf_to_2024._02._02
             Console.WriteLine();
         }
 
-        public void DeleteRep()
-        {
-            int newArrayLength = Array.Length;
-            for (int i = 0; i < Array.Length; i++)
-            {
-                for (int j = i; j < Array.Length; j++)
-                {
-                    if (Array[i] == Array[j] && i != j)
-                    {
-                        newArrayLength--;
-                        break;
-                    }
-                }
-            }
-
-            int[] newArray = new int[newArrayLength];
-            for (int i = 0; i < newArray.Length; i++)
-            {
-                newArray[i] = int.MinValue;
-            }
-            int counter = 0;
-
-            for (int i = 0; i < Array.Length; i++)
-            {
-                if (!Exists(Array[i], newArray))
-                {
-                    newArray[counter] = Array[i];
-                    counter++;
-                }
-            }
-
-            foreach (var item in newArray)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine();
-        }
-
-
-
-        private static bool Exists(int value, int[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] == value)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
         public override void Average()
         {
             int sum = 0;

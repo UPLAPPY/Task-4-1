@@ -52,32 +52,11 @@ namespace inf_to_2024._02._02
 
         public override void PrintArray()
         {
-            ArrayOutput();
-            ChArrayOutput();
-        }
-
-        private void ArrayOutput()
-        {
-            for (int i = 0; i < arr.GetLength(0); i++)
+                        for (int i = 0; i < arr.GetLength(0); i++)
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
                     Console.Write(arr[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine();
-        }
-        private void ChArrayOutput()
-        {
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
-                    int index = (i % 2 != 0)
-                        ? arr[i, arr.GetLength(1) - j - 1]
-                        : arr[i, j];
-                    Console.Write(index + " ");
                 }
                 Console.WriteLine();
             }

@@ -12,27 +12,20 @@ namespace inf_to_2024._02._02
     {
         public static void Main()
         {
-            IBaseArr[] testArrays = new IBaseArr[3];
+            IBaseArr[] testArrays = new IBaseArr[2];
             testArrays[0] = new Array1(false);
             testArrays[1] = new Array2(false);
-            testArrays[2] = new Array3(false);
 
-            for (int i = 0; i< 3; i++)
+            for (int i = 0; i< 2; i++)
             {
                 testArrays[i].PrintArray();
                 testArrays[i].Average();
                 testArrays[i].Create(true);
-                if (i == 0)
-                {
-                    ((IArray1)testArrays[0]).DeleteRep();
-                }
             }
 
-            IPrinter[] printerArrays = new IPrinter[4];
+            IPrinter[] printerArrays = new IPrinter[2];
             printerArrays[0] = testArrays[0];
             printerArrays[1] = testArrays[1];
-            printerArrays[2] = testArrays[2];
-            printerArrays[3] = new Week();
 
             for (int i = 0; i < 4; i++)
             {
