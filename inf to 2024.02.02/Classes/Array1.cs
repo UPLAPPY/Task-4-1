@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    sealed class Array1 : BaseArr, IArray1
+    sealed class Array1 : BaseArr
     {
         private int[] Array;
 
