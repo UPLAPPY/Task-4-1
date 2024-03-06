@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    sealed class Array1 : BaseArr
+    sealed class Array1<T> : BaseArr
     {
-        private int[] Array;
+        private T[] Array;
+        private IElGenerator<T> _elementGenerator;
 
-        private static Random rnd = new Random();
-
-        public Array1(bool avto_input)
+        public Array1(bool avto_input, IElGenerator<T> ElementGenerator)
         {
+            _elementGenerator = ElementGenerator;
             Create(avto_input);
         }
 
@@ -22,7 +22,7 @@ namespace inf_to_2024._02._02
         {
             Console.WriteLine("Введите количество элементов массива:");
             int _len = Convert.ToInt32(Console.ReadLine());
-            Array = new int[_len];
+            Array = new T[_len];
             base.Create(avto_input);
         }
 
@@ -31,7 +31,7 @@ namespace inf_to_2024._02._02
             Console.WriteLine("Введите элементы, каждый с новой строки");
             for (int i = 0; i < Array.Length; i++)
             {
-                Array[i] = Convert.ToInt32(Console.ReadLine());
+                Array[i] = _elementGenerator.InputElements();
             }
         }
 
@@ -39,27 +39,18 @@ namespace inf_to_2024._02._02
         {
             for (int i = 0; i < Array.Length; i++)
             {
-                Array[i] = rnd.Next(1, 33);
+                Array[i] = _elementGenerator.GenerateRandom();
             }
         }
 
         public override void PrintArray()
         {
-            foreach (int el in Array)
+            for (int i = 0; i < Array.Length; i++)
             {
-                Console.Write(el + " ");
+                Console.Write(Array[i] + " ");
             }
             Console.WriteLine();
-        }
-
-        public override void Average()
-        {
-            int sum = 0;
-            foreach (int num in Array)
-            {
-                sum += num;
-            }
-            Console.WriteLine(sum / Array.Length);
+            Console.WriteLine();
         }
     }
 }

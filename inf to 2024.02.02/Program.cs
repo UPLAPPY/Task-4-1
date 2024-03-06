@@ -1,4 +1,5 @@
 ﻿using inf_to_2024._02._02;
+using inf_to_2024._02._02.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,24 +13,20 @@ namespace inf_to_2024._02._02
     {
         public static void Main()
         {
-            IBaseArr[] testArrays = new IBaseArr[2];
-            testArrays[0] = new Array1(false);
-            testArrays[1] = new Array2(false);
+            IPrinter[] printer = new IPrinter[4];
+            IElGenerator<int> IntGenerator = new GeneratorInt();
+            IElGenerator<string> StringGenerator = new GeneratorString();
+            IElGenerator<double> DoubleGenerator = new GeneratorDouble();
+            IElGenerator<bool> BoolGenerator = new GeneratorBool();
 
-            for (int i = 0; i< 2; i++)
+            printer[0] = new Array1<double>(false, DoubleGenerator);
+            printer[1] = new Array1<string>(true, StringGenerator);
+            printer[2] = new Array2<int>(false, IntGenerator);
+            printer[3] = new Array2<bool>(true, BoolGenerator);
+
+            for (int i = 0; i < printer.Length; i++)
             {
-                testArrays[i].PrintArray();
-                testArrays[i].Average();
-                testArrays[i].Create(true);
-            }
-
-            IPrinter[] printerArrays = new IPrinter[2];
-            printerArrays[0] = testArrays[0];
-            printerArrays[1] = testArrays[1];
-
-            for (int i = 0; i < 4; i++)
-            {
-                printerArrays[i].PrintArray();
+                printer[i].PrintArray();
             }
         }
     }

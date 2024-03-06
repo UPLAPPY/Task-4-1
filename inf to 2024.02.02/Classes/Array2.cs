@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    sealed class Array2: BaseArr, IBaseArr, IPrinter
+    sealed class Array2<T>: BaseArr
     {
-        private int[,] arr;
+        private T[,] arr;
+        private IElGenerator<T> _elementGenerator;
 
-        private static Random rnd = new Random();
-
-        public Array2(bool AvtoInput)
+        public Array2(bool AvtoInput, IElGenerator<T> ElementGenerator)
         {
+            _elementGenerator = ElementGenerator;
             Create(AvtoInput);
         }
 
@@ -23,7 +23,7 @@ namespace inf_to_2024._02._02
                     "Каждое значение с новой строки:");
             int stroki = Convert.ToInt32(Console.ReadLine());
             int stolbiki = Convert.ToInt32(Console.ReadLine());
-            arr = new int[stroki, stolbiki];
+            arr = new T[stroki, stolbiki];
             base.Create(avto_input);
         }
 
@@ -33,7 +33,7 @@ namespace inf_to_2024._02._02
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    arr[i, j] = rnd.Next(1, 33);
+                    arr[i, j] = _elementGenerator.GenerateRandom();
                 }
             }
         }
@@ -45,14 +45,14 @@ namespace inf_to_2024._02._02
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    arr[i, j] = Convert.ToInt32(Console.ReadLine());
+                    arr[i, j] = _elementGenerator.InputElements();
                 }
             }
         }
 
         public override void PrintArray()
         {
-                        for (int i = 0; i < arr.GetLength(0); i++)
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
@@ -61,19 +61,6 @@ namespace inf_to_2024._02._02
                 Console.WriteLine();
             }
             Console.WriteLine();
-        }
-
-        public override void Average()
-        {
-            int sum = 0;
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
-                    sum += arr[i, j];
-                }
-            }
-            Console.WriteLine(sum / (arr.GetLength(0) * arr.GetLength(1)));
         }
     }
 }

@@ -8,6 +8,7 @@ namespace inf_to_2024._02._02
 {
     interface IElGenerator<T>
     {
-        T GenerateRnd();
+        T GenerateRandom();
+        T InputElements();
     }
 }
