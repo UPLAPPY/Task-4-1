@@ -44,8 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Array1.cs" />
-    <Compile Include="Classes\BaseArr.cs" />
-    <Compile Include="Interfaces\IBaseArr.cs" />
     <Compile Include="Interfaces\IPrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,50 +7,76 @@ using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    sealed class Array1<T> : BaseArr
+    sealed class Array1<T>
     {
-        private T[] Array;
-        private IElGenerator<T> _elementGenerator;
+        private T[] array;
+        private int _capacity;
+        private int _size;
 
-        public Array1(bool avto_input, IElGenerator<T> ElementGenerator)
+        public Array1(int capacity)
         {
-            _elementGenerator = ElementGenerator;
-            Create(avto_input);
+            _capacity = capacity;
+            array = new T[_capacity];
+            _size = 0;
         }
 
-        public override void Create(bool avto_input)
+        public Array1() : this(7)
         {
-            Console.WriteLine("Введите количество элементов массива:");
-            int _len = Convert.ToInt32(Console.ReadLine());
-            Array = new T[_len];
-            base.Create(avto_input);
         }
 
-        public override void ArrayInput()
+        public void Add(T item)
         {
-            Console.WriteLine("Введите элементы, каждый с новой строки");
-            for (int i = 0; i < Array.Length; i++)
+            if (_size >= _capacity)
             {
-                Array[i] = _elementGenerator.InputElements();
+                _capacity = _capacity * 2 + 1;
+                Array.Resize(ref array, _capacity);
             }
+            array[_size] = item;
+            _size++;
         }
 
-        public override void AvtoInput()
+        public T[] Method(Func<T, bool> condition)
         {
-            for (int i = 0; i < Array.Length; i++)
+            T[] newArray = new T[array.Length];
+            int count = 0;
+            for (int i = 0; i < newArray.Length; i++)
             {
-                Array[i] = _elementGenerator.GenerateRandom();
+                if (condition(array[i]))
+                {
+                    newArray[count] = array[i];
+                    count++;
+                }
             }
+            Array.Resize(ref newArray, count);
+            return newArray;
         }
 
-        public override void PrintArray()
+        public void Reverse()
         {
-            for (int i = 0; i < Array.Length; i++)
+            Array.Reverse(array);
+        }
+
+        public void Remove(Func<T, bool> item)
+        {
+            T[] newArray = new T[_size - 1];
+            for (int i = 0; i < _size; i++)
             {
-                Console.Write(Array[i] + " ");
+                if (!item(array[i]))
+                {
+                    newArray[i] = array[i];
+                }
             }
-            Console.WriteLine();
-            Console.WriteLine();
+            _size--;
+            Array.Copy(newArray, array, _size);
+            array = newArray;
+        }
+
+        public void ForEachAction(Action<T> action)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                action(array[i]);
+            }
         }
     }
 }
