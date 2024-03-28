@@ -67,8 +67,7 @@ namespace inf_to_2024._02._02
                 }
             }
             _size--;
-            Array.Copy(newArray, array, _size);
-            array = newArray;
+            Array.Copy(newArray, 0, array, 0, _size);
         }
 
         public void ForEachAction(Action<T> action)
