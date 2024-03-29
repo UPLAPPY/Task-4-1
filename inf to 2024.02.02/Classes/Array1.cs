@@ -2,13 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
 {
-    sealed class Array1<T>
+    sealed class Array1<T>: IComparer<T>
     {
+        public override int Compare(T a, T b)
+        {
+
+        }
+
         private T[] array;
         private int _capacity;
         private int _size;
@@ -35,22 +41,6 @@ namespace inf_to_2024._02._02
             _size++;
         }
 
-        public T[] Method(Func<T, bool> condition)
-        {
-            T[] newArray = new T[array.Length];
-            int count = 0;
-            for (int i = 0; i < newArray.Length; i++)
-            {
-                if (condition(array[i]))
-                {
-                    newArray[count] = array[i];
-                    count++;
-                }
-            }
-            Array.Resize(ref newArray, count);
-            return newArray;
-        }
-
         public void Reverse()
         {
             Array.Reverse(array);
@@ -70,11 +60,59 @@ namespace inf_to_2024._02._02
             Array.Copy(newArray, 0, array, 0, _size);
         }
 
+        public T[] Method(Func<T, bool> condition)
+        {
+            T[] newArray = new T[_size];
+            int count = 0;
+            for (int i = 0; i < _size; i++)
+            {
+                if (condition(array[i]))
+                {
+                    newArray[count] = array[i];
+                    count++;
+                }
+            }
+            Array.Resize(ref newArray, count);
+            return newArray;
+        }
+
         public void ForEachAction(Action<T> action)
         {
             for (int i = 0; i < array.Length; i++)
             {
                 action(array[i]);
+            }
+        }
+
+        public bool IfForOne(Func<T, bool> cond)
+        {
+            T[] newArray = Method(cond);
+            if (newArray.Length > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool IfForAll(Func<T, bool> cond)
+        {
+            T[]newArray = Method(cond);
+            if (newArray.Length == _size)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool IfInArray(T a)
+        {
+            int count = 0;
+            for (int i = 0; i < _size; i++)
+            {
+                if (a == array[i])
+                {
+                    count++;
+                }
             }
         }
     }
