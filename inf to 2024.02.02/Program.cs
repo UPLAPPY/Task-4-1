@@ -12,7 +12,41 @@ namespace inf_to_2024._02._02
     {
         public static void Main()
         {
-            
+            Array1<int> IntArr = new Array1<int>();
+            for (int i = 0; i < 8; i++)
+            {
+                IntArr.Add(i);
+            }
+            IntArr.PrintArray();
+            int y = 3;
+            IntArr.Reverse();
+            IntArr.PrintArray();
+            Console.WriteLine(IntArr.Amount());
+            Console.WriteLine(IntArr.CountAmount((x) => x == 2));
+            IntArr.Remove(y, (a, b) => a == b);
+            IntArr.PrintArray();
+            Console.WriteLine(IntArr.IfForOne((x) => x % 3 == 0));
+            Console.WriteLine(IntArr.IfForAll((x) => x % 2 == 0));
+            IntArr.ActionForAll((x) => x * x);
+            IntArr.PrintArray();
+
+            Array1<string> StringArr = new Array1<string>();
+            for (int i = 0; i < 8; i++)
+            {
+                StringArr.Add($"{i + 1}");
+            }
+            StringArr.PrintArray();
+            string g = "3";
+            StringArr.Reverse();
+            StringArr.PrintArray();
+            Console.WriteLine(StringArr.Amount());
+            Console.WriteLine(StringArr.CountAmount((x) => x == "IHBPFJASTMNEYNEDMMKYAMAITTRTD"));
+            StringArr.Remove(g, (a, b) => a == b);
+            StringArr.PrintArray();
+            Console.WriteLine(StringArr.IfForOne((x) => x != "TUTUTUTU33"));
+            Console.WriteLine(StringArr.IfForAll((x) => x != "Smooth Operatooor"));
+            StringArr.ActionForAll((x) => x + "ab");
+            StringArr.PrintArray();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace inf_to_2024._02._02
         public Array1(int capacity)
         {
             _capacity = capacity;
-            array = new T[_capacity];
+            array = new T[capacity];
             _size = 0;
         }
 
@@ -42,8 +42,14 @@ namespace inf_to_2024._02._02
 
         public void Reverse()
         {
-            Array.Reverse(array);
+            T[] newArray = new T[_size];
+            for (int i = _size - 1; i >= 0; i--)
+            {
+                newArray[i] = array[_size - i - 1];
+            }
+            Array.Copy(newArray, 0, array, 0, _size);
         }
+
 
         public int Amount()
         {
@@ -56,18 +62,28 @@ namespace inf_to_2024._02._02
             return newArray.Length;
         }
 
-        public void Remove(Func<T, bool> item)
+        public void Remove(T item, Func<T, T, bool> deleg)
         {
-            T[] newArray = new T[_size - 1];
+            T[] newArray = new T[_size];
+            int mark = 0;
             for (int i = 0; i < _size; i++)
             {
-                if (!item(array[i]))
+                if (!deleg(item, array[i]))
                 {
                     newArray[i] = array[i];
                 }
+                else
+                {
+                    mark = i;
+                }
+            }
+            Array.Copy(newArray, 0, array, 0, _size - 1);
+            for (int i = mark; i < _size; i++)
+            {
+                array[i] = array[i + 1];
             }
             _size--;
-            Array.Copy(newArray, 0, array, 0, _size);
+
         }
 
         public T[] Method(Func<T, bool> condition)
@@ -86,12 +102,19 @@ namespace inf_to_2024._02._02
             return newArray;
         }
 
-        public void ActionForAll(Action<T> action)
+        public void ActionForAll(Func<T, T> condition)
         {
-            for (int i = 0; i < array.Length; i++)
+            T[] newArray = new T[_size];
+            for (int i = 0; i < _size; i++)
             {
-                action(array[i]);
+                array[i] = condition(array[i]);
             }
+
+            for (int i = 0; i < _size; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+            Console.WriteLine("");
         }
 
         public bool IfForOne(Func<T, bool> cond)
@@ -112,6 +135,15 @@ namespace inf_to_2024._02._02
                 return true;
             }
             return false;
+        }
+
+        public void PrintArray()
+        {
+            for (int i = 0; i < _size; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+            Console.WriteLine("");
         }
     }
 }
