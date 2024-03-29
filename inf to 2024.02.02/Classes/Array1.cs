@@ -1,19 +1,18 @@
 ﻿using inf_to_2024._02._02;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace inf_to_2024._02._02
-{
-    sealed class Array1<T>: IComparer<T>
-    {
-        public override int Compare(T a, T b)
-        {
+{ 
 
-        }
+    class Array1<T>
+    {
 
         private T[] array;
         private int _capacity;
@@ -46,6 +45,17 @@ namespace inf_to_2024._02._02
             Array.Reverse(array);
         }
 
+        public int Amount()
+        {
+            return _size;
+        }
+
+        public int CountAmount(Func<T, bool> cond)
+        {
+            T[] newArray = Method(cond);
+            return newArray.Length;
+        }
+
         public void Remove(Func<T, bool> item)
         {
             T[] newArray = new T[_size - 1];
@@ -76,7 +86,7 @@ namespace inf_to_2024._02._02
             return newArray;
         }
 
-        public void ForEachAction(Action<T> action)
+        public void ActionForAll(Action<T> action)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -102,18 +112,6 @@ namespace inf_to_2024._02._02
                 return true;
             }
             return false;
-        }
-
-        public bool IfInArray(T a)
-        {
-            int count = 0;
-            for (int i = 0; i < _size; i++)
-            {
-                if (a == array[i])
-                {
-                    count++;
-                }
-            }
         }
     }
 }
