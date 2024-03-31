@@ -145,5 +145,27 @@ namespace inf_to_2024._02._02
             }
             Console.WriteLine("");
         }
+
+        public T Min()
+        {
+            T min = array[0];
+            for (int i = 1; i < _size; i++)
+            {
+                if (Comparer<T>.Default.Compare(array[i], min) < 0)
+                    min = array[i];
+            }
+            return min;
+        }
+
+        public T Max()
+        {
+            T max = array[0];
+            for (int i = 1; i < _size; i++)
+            {
+                if (Comparer<T>.Default.Compare(array[i], max) > 0)
+                    max = array[i];
+            }
+            return max;
+        }
     }
 }
