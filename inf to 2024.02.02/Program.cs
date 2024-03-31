@@ -10,15 +10,6 @@ namespace inf_to_2024._02._02
 {
     internal class Program
     {
-        static bool IntFunc1(int x)
-        {
-            return x == 3;
-        }
-        static bool IntFunc2(int x)
-        {
-            return x % 3 == 0;
-        }
-        //static bool IntFunc3(int x)
 
         public static void Main()
         {
@@ -32,7 +23,7 @@ namespace inf_to_2024._02._02
             IntArr.Reverse();
             IntArr.PrintArray();
             Console.WriteLine(IntArr.Amount());
-            Console.WriteLine(IntArr.CountAmount((x) => IntFunc1(x)));
+            Console.WriteLine(IntArr.CountAmount((x) => x == 3));
             IntArr.Remove(y, (a, b) => a == b);
             IntArr.PrintArray();
             Console.WriteLine(IntArr.IfForOne((x) => x % 3 == 0));
